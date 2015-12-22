@@ -10,21 +10,42 @@ import Foundation
 
 class CalculatorBrain
 {
-   private enum Op {
+    private enum Op : CustomStringConvertible {
         case Operand(Double)
         case UniaryOperation(String,Double->Double)
         case BinaryOperation(String,(Double,Double)->Double)
+        
+        var description : String {
+            get {
+                switch self{
+                case .Operand(let operand):
+                    return "\(operand)"
+                case .UniaryOperation(let symbol, _):
+                    return symbol
+                case .BinaryOperation(let symbol, _):
+                    return symbol
+                }
+            }
+            set {
+                
+            }
+        }
     }
     private var opStac = [Op]()
-//    OR
-//    var opStac = Array<Op>()
+    //    OR
+    //    var opStac = Array<Op>()
     
     private var knownOps = [String:Op]()
-//  OR
-//    var knownOps = Dictionary<String,Op>()
+    //  OR
+    //    var knownOps = Dictionary<String,Op>()
     
     init() {
-        knownOps["✕"] = Op.BinaryOperation("✕"){$0 * $1}
+        func learnOp(op: Op){
+            knownOps[op.description] = op
+        }
+        learnOp(Op.BinaryOperation("✕"){$0 * $1})
+
+//        knownOps["✕"] = Op.BinaryOperation("✕"){$0 * $1}
         
         knownOps["÷"] = Op.BinaryOperation("÷"){$0 / $1}
         
@@ -32,17 +53,17 @@ class CalculatorBrain
         
         
         knownOps["-"] = Op.BinaryOperation("-",-)
-//        OR All operation are function.So it know that that will take two argument, so no need to specify $0 and $1.So we can use like taht for +,*,/etc.
-//        knownOps["-"] = Op.BinaryOperation("-"){$0 - $1}
+        //        OR All operation are function.So it know that that will take two argument, so no need to specify $0 and $1.So we can use like taht for +,*,/etc.
+        //        knownOps["-"] = Op.BinaryOperation("-"){$0 - $1}
         
         
         
         knownOps["√"] = Op.UniaryOperation("√",sqrt) //Sift know Sqrt take double as argument, so comming double value is pass here.So no need to specify here sepratlly.
-//        OR
-//        knownOps["√"] = Op.UniaryOperation("√"){sqrt($0)}
-
+        //        OR
+        //        knownOps["√"] = Op.UniaryOperation("√"){sqrt($0)}
+        
     }
-
+    
     //Recurstion is implmented.
     private func evaluate( ops: [Op]) -> (result: Double?,reminingOps:[Op])
     {
@@ -70,16 +91,19 @@ class CalculatorBrain
         return(nil,ops)
     }
     func evaluate() -> Double?{
-        let (result,_) = evaluate(opStac)
+        let (result,reminder) = evaluate(opStac)
+        print("\(opStac) == \(result) with \(reminder) left over")
         return result
     }
-    func pushOperand(operand : Double){
+    func pushOperand(operand : Double) -> Double?{
         opStac.append(Op.Operand(operand))
+        return evaluate()
     }
-    func performOperation(symbol: String){
+    func performOperation(symbol: String) -> Double?{
         if let Operation = knownOps[symbol]
         {
             opStac.append(Operation)
         }
+        return evaluate()
     }
 }
