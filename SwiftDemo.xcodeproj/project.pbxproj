@@ -15,6 +15,7 @@
 		48A22AAB1C255E11009434AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A22AA91C255E11009434AE /* LaunchScreen.storyboard */; };
 		48A22AB61C255E11009434AE /* SwiftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A22AB51C255E11009434AE /* SwiftDemoTests.swift */; };
 		48A22AC11C255E11009434AE /* SwiftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A22AC01C255E11009434AE /* SwiftDemoUITests.swift */; };
+		48B2D1F31C345DB90057DF63 /* FundamentalSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2D1F21C345DB90057DF63 /* FundamentalSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		48A22ABC1C255E11009434AE /* SwiftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A22AC01C255E11009434AE /* SwiftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDemoUITests.swift; sourceTree = "<group>"; };
 		48A22AC21C255E11009434AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B2D1F21C345DB90057DF63 /* FundamentalSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundamentalSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				48A22AA01C255E11009434AE /* AppDelegate.swift */,
 				48A22AA21C255E11009434AE /* ViewController.swift */,
 				48A22AA41C255E11009434AE /* Main.storyboard */,
+				48B2D1F21C345DB90057DF63 /* FundamentalSwift.swift */,
 				48A22AA71C255E11009434AE /* Assets.xcassets */,
 				48A22AA91C255E11009434AE /* LaunchScreen.storyboard */,
 				48A22AAC1C255E11009434AE /* Info.plist */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4840C4761C26C07400D6D698 /* CalculatorBrain.swift in Sources */,
+				48B2D1F31C345DB90057DF63 /* FundamentalSwift.swift in Sources */,
 				48A22AA31C255E11009434AE /* ViewController.swift in Sources */,
 				48A22AA11C255E11009434AE /* AppDelegate.swift in Sources */,
 			);
