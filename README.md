@@ -1,5 +1,5 @@
 # SwiftStudy
-To study Swift
+To study Swift 
 
 Work while taking course in "Stanford - Developing iOS 8 Apps with Swift" <br/>
 
